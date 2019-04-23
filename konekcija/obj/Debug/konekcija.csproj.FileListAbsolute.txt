@@ -72,3 +72,19 @@ C:\Users\Control 2\Documents\GitHub\project1-zagorka\konekcija\obj\Debug\konekci
 C:\Users\Control 2\Documents\GitHub\project1-zagorka\konekcija\obj\Debug\konekcija.frmCARDHOLDER.resources
 C:\Users\Control 2\Documents\GitHub\project1-zagorka\konekcija\obj\Debug\konekcija.frmHOLIDAY.resources
 C:\Users\Control 2\Documents\GitHub\project1-zagorka\konekcija\obj\Debug\konekcija.frmMAIN.resources
+C:\Users\Control\Desktop\project\Misko\konekcija\bin\Debug\konekcija.exe.config
+C:\Users\Control\Desktop\project\Misko\konekcija\bin\Debug\konekcija.exe
+C:\Users\Control\Desktop\project\Misko\konekcija\bin\Debug\konekcija.pdb
+C:\Users\Control\Desktop\project\Misko\konekcija\bin\Debug\EntityFramework.dll
+C:\Users\Control\Desktop\project\Misko\konekcija\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Control\Desktop\project\Misko\konekcija\bin\Debug\EntityFramework.xml
+C:\Users\Control\Desktop\project\Misko\konekcija\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Control\Desktop\project\Misko\konekcija\obj\Debug\konekcija.csprojResolveAssemblyReference.cache
+C:\Users\Control\Desktop\project\Misko\konekcija\obj\Debug\konekcija.frmMAIN.resources
+C:\Users\Control\Desktop\project\Misko\konekcija\obj\Debug\konekcija.frmEXCEPTION.resources
+C:\Users\Control\Desktop\project\Misko\konekcija\obj\Debug\konekcija.frmCARDHOLDER.resources
+C:\Users\Control\Desktop\project\Misko\konekcija\obj\Debug\konekcija.frmHOLIDAY.resources
+C:\Users\Control\Desktop\project\Misko\konekcija\obj\Debug\konekcija.Properties.Resources.resources
+C:\Users\Control\Desktop\project\Misko\konekcija\obj\Debug\konekcija.csproj.GenerateResource.Cache
+C:\Users\Control\Desktop\project\Misko\konekcija\obj\Debug\konekcija.exe
+C:\Users\Control\Desktop\project\Misko\konekcija\obj\Debug\konekcija.pdb

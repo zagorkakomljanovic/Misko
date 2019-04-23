@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.cboxCARDHOLDER = new System.Windows.Forms.ComboBox();
@@ -45,6 +45,9 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblDO = new System.Windows.Forms.Label();
             this.lblOD = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LogNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SumDirecttion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.cardholderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCHECKLIST)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accessLogBindingSource)).BeginInit();
@@ -100,19 +103,22 @@
             // dgCHECKLIST
             // 
             this.dgCHECKLIST.AllowUserToAddRows = false;
-            dataGridViewCellStyle2.NullValue = null;
-            this.dgCHECKLIST.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.NullValue = null;
+            this.dgCHECKLIST.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgCHECKLIST.AutoGenerateColumns = false;
             this.dgCHECKLIST.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCHECKLIST.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.directionDataGridViewTextBoxColumn,
-            this.localTimeDataGridViewTextBoxColumn});
+            this.localTimeDataGridViewTextBoxColumn,
+            this.Column1,
+            this.LogNum,
+            this.SumDirecttion});
             this.dgCHECKLIST.DataSource = this.accessLogBindingSource;
             this.dgCHECKLIST.Location = new System.Drawing.Point(29, 243);
             this.dgCHECKLIST.Margin = new System.Windows.Forms.Padding(2);
             this.dgCHECKLIST.Name = "dgCHECKLIST";
             this.dgCHECKLIST.RowTemplate.Height = 24;
-            this.dgCHECKLIST.Size = new System.Drawing.Size(287, 372);
+            this.dgCHECKLIST.Size = new System.Drawing.Size(608, 372);
             this.dgCHECKLIST.TabIndex = 4;
             this.dgCHECKLIST.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgCHECKLIST_CellFormatting);
             // 
@@ -196,11 +202,26 @@
             this.lblOD.TabIndex = 2;
             this.lblOD.Text = "Od";
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "WorkTime";
+            this.Column1.Name = "Column1";
+            // 
+            // LogNum
+            // 
+            this.LogNum.HeaderText = "LogNum";
+            this.LogNum.Name = "LogNum";
+            // 
+            // SumDirecttion
+            // 
+            this.SumDirecttion.HeaderText = "SumDirecttion";
+            this.SumDirecttion.Name = "SumDirecttion";
+            // 
             // frmCARDHOLDER
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(346, 626);
+            this.ClientSize = new System.Drawing.Size(689, 626);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgCHECKLIST);
@@ -236,5 +257,8 @@
         private System.Windows.Forms.BindingSource accessLogBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn directionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn localTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LogNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SumDirecttion;
     }
 }

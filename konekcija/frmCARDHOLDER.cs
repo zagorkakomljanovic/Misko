@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -42,15 +43,7 @@ namespace konekcija
 
             //cardholderBindingSource.DataSource = Lista;
         }
-//        void radGridView1_DataBindingComplete(object sender, GridViewBindingCompleteEventArgs e) 
-//{ 
-//    this.radGridView1.GridElement.BeginUpdate(); 
-//    foreach (GridViewRowInfo row in this.radGridView1.Rows) 
-//    { 
-//        row.Cells["Value"].Value = 10; 
-//    } 
-//    this.radGridView1.GridElement.EndUpdate(); 
-//} 
+
         private void CreateQuery (object sender, EventArgs e)
         {
 
@@ -58,11 +51,16 @@ namespace konekcija
             Lista1 = _context.AccessLogs.ToList();
 
             Lista1 = Lista1.Where(i => ((CARDHOLDERID == 0) ? true : (i.LocalTime >= dateTimePicker1.Value.Date)
+            Lista1 = Lista1.Where(i => ((CARDHOLDERID == 0) ? true : (i.LocalTime.Value.Date >= dateTimePicker1.Value.Date)
                                        && (i.LocalTime <= dateTimePicker2.Value.Date)
                                        && (i.CardholderID == CARDHOLDERID))).ToList();
             accessLogBindingSource.DataSource = Lista1;
             dgCHECKLIST.DataSource = Lista1;
-            
+
+            int query = (from s in _context.AccessLogs
+                        where s.CardholderID == CARDHOLDERID && DbFunctions.TruncateTime(s.LocalTime) == DbFunctions.TruncateTime(dateTimePicker1.Value)
+                         select s.CardholderID).Count();
+            textBox1.Text = dateTimePicker1.Value.Date.ToString();
 
         }
         private void dgCHECKLIST_CellFormatting(object sender,DataGridViewCellFormattingEventArgs e)
@@ -111,7 +109,6 @@ namespace konekcija
             }
             
         }
-
 
     }
 }
