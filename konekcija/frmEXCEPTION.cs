@@ -44,35 +44,69 @@ namespace konekcija
 
                 accessLogBindingSource.DataSource = Lista1;
                 dgCHECKLIST.DataSource = Lista1;
-
             }
-        }
+                  
+        }  
 
         private void cboxCARDHOLDER_Click(object sender, EventArgs e)
         {
-            if (brojac == 1)
-            {
-
-            }
-            else
-            {                
-                brojac = 1;
-
-                _context = new konekcija.MojaEntities();
-                cboxCARDHOLDER.DataSource = _context.Cardholders.ToList();
-                cboxCARDHOLDER.Text = "";
-
-                Lista2 = _context.Cards.ToList();
-                Lista1 = _context.AccessLogs.ToList();
-                Lista = _context.Cardholders.ToList();
-            }
-            
-
+           
         }
 
         private void frmEXCEPTION_Load(object sender, EventArgs e)
         {
-          
+            _context = new konekcija.MojaEntities();
+            cboxCARDHOLDER.DataSource = _context.Cardholders.ToList();
+            cboxCARDHOLDER.Text = "";
+
+            Lista2 = _context.Cards.ToList();
+            Lista1 = _context.AccessLogs.ToList();
+            Lista = _context.Cardholders.ToList();
+        }
+
+        private void dgCHECKLIST_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            
+            if (cboxCARDHOLDER.Text != "")
+            {
+                var dgridView = (DataGridView)sender;
+                foreach (DataGridViewRow row in dgridView.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        var card = (konekcija.AccessLog)(row.DataBoundItem);
+                        var imer = card.Cardholder;
+
+                        row.Cells[gvCARDHOLDER.Index].Value = imer.Name;
+                    }
+                }
+            }
+            //if (textBoxVARIANTCOLOR.Text.Length != 0 && textBoxDEZENIME.Text.Length != 0 && comboBoxKOLEKCIJA.Text.Length != 0)
+            //{
+            //    var gridView = (DataGridView)sender;
+            //    foreach (DataGridViewRow row in gridView.Rows)
+            //    {
+            //        if (!row.IsNewRow)
+            //        {
+            //            var katalog = (TexEnterijer.KATALOG)(row.DataBoundItem);
+            //            var prodajnomjesto = katalog.BRKATALOG;
+
+            //            row.Cells[PMJESTO.Index].Value = prodajnomjesto.RADNOMJESTO.NAZIVRADNOGMJESTA;
+            //        }
+            //    }
+            //}
+        }
+
+        private void createQuery1 (object sender, EventArgs e)
+        {
+            Lista1 = _context.AccessLogs.ToList();
+
+            Lista1 = Lista1.Where(i => ((CARDHOLDERID == 0) ? true : (i.LocalTime >= dateTimePicker1.Value.Date)
+                                       && (i.LocalTime <= dateTimePicker2.Value.Date)
+                                       && (i.CardholderID == CARDHOLDERID))).ToList();
+
+            accessLogBindingSource.DataSource = Lista1;
+            dgCHECKLIST.DataSource = Lista1;
         }
     }
 }

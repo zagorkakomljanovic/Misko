@@ -45,7 +45,7 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dgCHECKLIST = new System.Windows.Forms.DataGridView();
-            this.Cardholder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvCARDHOLDER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.directionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.localTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
@@ -115,7 +115,7 @@
             this.cboxCARDHOLDER.DataSource = this.cardholderBindingSource;
             this.cboxCARDHOLDER.DisplayMember = "Name";
             this.cboxCARDHOLDER.FormattingEnabled = true;
-            this.cboxCARDHOLDER.Location = new System.Drawing.Point(108, 36);
+            this.cboxCARDHOLDER.Location = new System.Drawing.Point(88, 36);
             this.cboxCARDHOLDER.Margin = new System.Windows.Forms.Padding(2);
             this.cboxCARDHOLDER.Name = "cboxCARDHOLDER";
             this.cboxCARDHOLDER.Size = new System.Drawing.Size(185, 21);
@@ -192,6 +192,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
             this.dateTimePicker1.TabIndex = 0;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.createQuery1);
             // 
             // dgCHECKLIST
             // 
@@ -201,22 +202,22 @@
             this.dgCHECKLIST.AutoGenerateColumns = false;
             this.dgCHECKLIST.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCHECKLIST.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Cardholder,
+            this.gvCARDHOLDER,
             this.directionDataGridViewTextBoxColumn,
             this.localTimeDataGridViewTextBoxColumn});
             this.dgCHECKLIST.DataSource = this.accessLogBindingSource;
-            this.dgCHECKLIST.Location = new System.Drawing.Point(44, 206);
+            this.dgCHECKLIST.Location = new System.Drawing.Point(44, 211);
             this.dgCHECKLIST.Margin = new System.Windows.Forms.Padding(2);
             this.dgCHECKLIST.Name = "dgCHECKLIST";
             this.dgCHECKLIST.RowTemplate.Height = 24;
             this.dgCHECKLIST.Size = new System.Drawing.Size(494, 209);
             this.dgCHECKLIST.TabIndex = 8;
+            this.dgCHECKLIST.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgCHECKLIST_DataBindingComplete);
             // 
-            // Cardholder
+            // gvCARDHOLDER
             // 
-            this.Cardholder.DataPropertyName = "Cardholder";
-            this.Cardholder.HeaderText = "Cardholder";
-            this.Cardholder.Name = "Cardholder";
+            this.gvCARDHOLDER.HeaderText = "Cardholder";
+            this.gvCARDHOLDER.Name = "gvCARDHOLDER";
             // 
             // directionDataGridViewTextBoxColumn
             // 
@@ -272,7 +273,7 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cardholder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gvCARDHOLDER;
         private System.Windows.Forms.DataGridViewTextBoxColumn directionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn localTimeDataGridViewTextBoxColumn;
     }
