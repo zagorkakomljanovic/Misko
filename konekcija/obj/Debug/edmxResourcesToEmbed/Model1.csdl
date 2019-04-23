@@ -35,6 +35,7 @@
     <NavigationProperty Name="AccessLogs" Relationship="Self.FK__AccessLog__Cardh__29221CFB" FromRole="Cardholder" ToRole="AccessLog" />
     <NavigationProperty Name="Cards" Relationship="Self.FK__Card__Cardholder__2645B050" FromRole="Cardholder" ToRole="Card" />
     <NavigationProperty Name="Holidays" Relationship="MojaModel.FK_Holiday_Cardholder" FromRole="Cardholder" ToRole="Holiday" />
+    <NavigationProperty Name="Exceptions" Relationship="MojaModel.FK_Exception_Cardholder" FromRole="Cardholder" ToRole="Exception" />
   </EntityType>
   <Association Name="FK__AccessLog__Cardh__29221CFB">
     <End Role="Cardholder" Type="Self.Cardholder" Multiplicity="0..1" />
@@ -77,6 +78,11 @@
       <End Role="Cardholder" EntitySet="Cardholders" />
       <End Role="Holiday" EntitySet="Holidays" />
     </AssociationSet>
+    <EntitySet Name="Exceptions" EntityType="MojaModel.Exception" />
+    <AssociationSet Name="FK_Exception_Cardholder" Association="MojaModel.FK_Exception_Cardholder">
+      <End Role="Cardholder" EntitySet="Cardholders" />
+      <End Role="Exception" EntitySet="Exceptions" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Holiday">
     <Key>
@@ -99,6 +105,31 @@
         <PropertyRef Name="CardholderID" />
       </Principal>
       <Dependent Role="Holiday">
+        <PropertyRef Name="CardholderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Exception">
+    <Key>
+      <PropertyRef Name="ExceptionID" />
+    </Key>
+    <Property Name="ExceptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardholderID" Type="Int32" />
+    <Property Name="Worktime" Type="Time" Precision="7" />
+    <Property Name="ExcIN_OUT" Type="Boolean" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Cardholder" Relationship="MojaModel.FK_Exception_Cardholder" FromRole="Exception" ToRole="Cardholder" />
+  </EntityType>
+  <Association Name="FK_Exception_Cardholder">
+    <End Type="MojaModel.Cardholder" Role="Cardholder" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MojaModel.Exception" Role="Exception" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cardholder">
+        <PropertyRef Name="CardholderID" />
+      </Principal>
+      <Dependent Role="Exception">
         <PropertyRef Name="CardholderID" />
       </Dependent>
     </ReferentialConstraint>

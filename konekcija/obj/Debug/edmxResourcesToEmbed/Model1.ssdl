@@ -31,6 +31,16 @@
     <Property Name="LastName" Type="nvarchar" MaxLength="150" />
     <Property Name="Gender" Type="bit" />
   </EntityType>
+  <EntityType Name="Exception">
+    <Key>
+      <PropertyRef Name="ExceptionID" />
+    </Key>
+    <Property Name="ExceptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardholderID" Type="int" />
+    <Property Name="Worktime" Type="time" Precision="7" />
+    <Property Name="ExcIN_OUT" Type="bit" />
+    <Property Name="Date" Type="date" />
+  </EntityType>
   <EntityType Name="Holiday">
     <Key>
       <PropertyRef Name="HolidayID" />
@@ -69,6 +79,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Exception_Cardholder">
+    <End Role="Cardholder" Type="Self.Cardholder" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Exception" Type="Self.Exception" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cardholder">
+        <PropertyRef Name="CardholderID" />
+      </Principal>
+      <Dependent Role="Exception">
+        <PropertyRef Name="CardholderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Holiday_Cardholder">
     <End Role="Cardholder" Type="Self.Cardholder" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
@@ -87,6 +111,7 @@
     <EntitySet Name="AccessLog" EntityType="Self.AccessLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cardholder" EntityType="Self.Cardholder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exception" EntityType="Self.Exception" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Holiday" EntityType="Self.Holiday" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_AccessLog_Cardholder" Association="Self.FK_AccessLog_Cardholder">
       <End Role="Cardholder" EntitySet="Cardholder" />
@@ -95,6 +120,10 @@
     <AssociationSet Name="FK_Card_Cardholder" Association="Self.FK_Card_Cardholder">
       <End Role="Cardholder" EntitySet="Cardholder" />
       <End Role="Card" EntitySet="Card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exception_Cardholder" Association="Self.FK_Exception_Cardholder">
+      <End Role="Cardholder" EntitySet="Cardholder" />
+      <End Role="Exception" EntitySet="Exception" />
     </AssociationSet>
     <AssociationSet Name="FK_Holiday_Cardholder" Association="Self.FK_Holiday_Cardholder">
       <End Role="Cardholder" EntitySet="Cardholder" />

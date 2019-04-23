@@ -65,6 +65,9 @@
     <Compile Include="Cardholder.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Exception.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="frmMAIN.cs">
       <SubType>Form</SubType>
     </Compile>

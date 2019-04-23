@@ -40,6 +40,8 @@ public partial class MojaEntities : DbContext
 
     public virtual DbSet<Holiday> Holidays { get; set; }
 
+    public virtual DbSet<Exception> Exceptions { get; set; }
+
 }
 
 }

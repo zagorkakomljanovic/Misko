@@ -28,6 +28,8 @@ public partial class Cardholder
 
         this.Holidays = new HashSet<Holiday>();
 
+        this.Exceptions = new HashSet<Exception>();
+
     }
 
 
@@ -54,6 +56,10 @@ public partial class Cardholder
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
     public virtual ICollection<Holiday> Holidays { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<Exception> Exceptions { get; set; }
 
 }
 

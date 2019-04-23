@@ -46,5 +46,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Exceptions">
+      <EntityTypeMapping TypeName="MojaModel.Exception">
+        <MappingFragment StoreEntitySet="Exception">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ExcIN_OUT" ColumnName="ExcIN_OUT" />
+          <ScalarProperty Name="Worktime" ColumnName="Worktime" />
+          <ScalarProperty Name="CardholderID" ColumnName="CardholderID" />
+          <ScalarProperty Name="ExceptionID" ColumnName="ExceptionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

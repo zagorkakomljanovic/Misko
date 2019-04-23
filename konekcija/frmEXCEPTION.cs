@@ -80,21 +80,7 @@ namespace konekcija
                         row.Cells[gvCARDHOLDER.Index].Value = imer.Name;
                     }
                 }
-            }
-            //if (textBoxVARIANTCOLOR.Text.Length != 0 && textBoxDEZENIME.Text.Length != 0 && comboBoxKOLEKCIJA.Text.Length != 0)
-            //{
-            //    var gridView = (DataGridView)sender;
-            //    foreach (DataGridViewRow row in gridView.Rows)
-            //    {
-            //        if (!row.IsNewRow)
-            //        {
-            //            var katalog = (TexEnterijer.KATALOG)(row.DataBoundItem);
-            //            var prodajnomjesto = katalog.BRKATALOG;
-
-            //            row.Cells[PMJESTO.Index].Value = prodajnomjesto.RADNOMJESTO.NAZIVRADNOGMJESTA;
-            //        }
-            //    }
-            //}
+            }           
         }
 
         private void createQuery1 (object sender, EventArgs e)
@@ -107,6 +93,6 @@ namespace konekcija
 
             accessLogBindingSource.DataSource = Lista1;
             dgCHECKLIST.DataSource = Lista1;
-        }
+        }       
     }
 }
