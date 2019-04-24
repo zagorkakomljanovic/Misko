@@ -38,17 +38,17 @@
     <EntitySetMapping Name="Holidays">
       <EntityTypeMapping TypeName="MojaModel.Holiday">
         <MappingFragment StoreEntitySet="Holiday">
-          <ScalarProperty Name="CardholderID" ColumnName="CardholderID" />
-          <ScalarProperty Name="NumberOfDays" ColumnName="NumberOfDays" />
-          <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
-          <ScalarProperty Name="LeaveDate" ColumnName="LeaveDate" />
           <ScalarProperty Name="HolidayID" ColumnName="HolidayID" />
+          <ScalarProperty Name="LeaveDate" ColumnName="LeaveDate" />
+          <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+          <ScalarProperty Name="NumberOfDays" ColumnName="NumberOfDays" />
+          <ScalarProperty Name="CardholderID" ColumnName="CardholderID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Exceptions">
-      <EntityTypeMapping TypeName="MojaModel.Exception">
-        <MappingFragment StoreEntitySet="Exception">
+    <EntitySetMapping Name="LogExceptions">
+      <EntityTypeMapping TypeName="MojaModel.LogException">
+        <MappingFragment StoreEntitySet="LogException">
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="ExcIN_OUT" ColumnName="ExcIN_OUT" />
           <ScalarProperty Name="Worktime" ColumnName="Worktime" />

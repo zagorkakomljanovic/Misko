@@ -4,41 +4,54 @@
     <Key>
       <PropertyRef Name="LogID" />
     </Key>
-    <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LogID" Type="Int32" Nullable="false" />
     <Property Name="CardCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="CardType" Type="Int32" />
     <Property Name="ControllerID" Type="Int32" />
     <Property Name="Direction" Type="Int32" />
     <Property Name="LocalTime" Type="DateTime" Precision="3" />
     <Property Name="CardholderID" Type="Int32" />
-    <NavigationProperty Name="Cardholder" Relationship="Self.FK__AccessLog__Cardh__29221CFB" FromRole="AccessLog" ToRole="Cardholder" />
+    <NavigationProperty Name="Cardholder" Relationship="Self.FK_AccessLog_Cardholder" FromRole="AccessLog" ToRole="Cardholder" />
   </EntityType>
   <EntityType Name="Card">
     <Key>
       <PropertyRef Name="CardID" />
     </Key>
-    <Property Name="CardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardID" Type="Int32" Nullable="false" />
     <Property Name="CardNo" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
     <Property Name="CardNoIntCode" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
     <Property Name="CardholderID" Type="Int32" />
-    <NavigationProperty Name="Cardholder" Relationship="Self.FK__Card__Cardholder__2645B050" FromRole="Card" ToRole="Cardholder" />
+    <NavigationProperty Name="Cardholder" Relationship="Self.FK_Card_Cardholder" FromRole="Card" ToRole="Cardholder" />
   </EntityType>
   <EntityType Name="Cardholder">
     <Key>
       <PropertyRef Name="CardholderID" />
     </Key>
-    <Property Name="CardholderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardholderID" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="FirstName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="LastName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="Gender" Type="Boolean" />
-    <NavigationProperty Name="AccessLogs" Relationship="Self.FK__AccessLog__Cardh__29221CFB" FromRole="Cardholder" ToRole="AccessLog" />
-    <NavigationProperty Name="Cards" Relationship="Self.FK__Card__Cardholder__2645B050" FromRole="Cardholder" ToRole="Card" />
-    <NavigationProperty Name="Holidays" Relationship="MojaModel.FK_Holiday_Cardholder" FromRole="Cardholder" ToRole="Holiday" />
-    <NavigationProperty Name="Exceptions" Relationship="MojaModel.FK_Exception_Cardholder" FromRole="Cardholder" ToRole="Exception" />
+    <NavigationProperty Name="AccessLogs" Relationship="Self.FK_AccessLog_Cardholder" FromRole="Cardholder" ToRole="AccessLog" />
+    <NavigationProperty Name="Cards" Relationship="Self.FK_Card_Cardholder" FromRole="Cardholder" ToRole="Card" />
+    <NavigationProperty Name="Holidays" Relationship="Self.FK_Holiday_Cardholder" FromRole="Cardholder" ToRole="Holiday" />
+    <NavigationProperty Name="LogExceptions" Relationship="MojaModel.FK_Exception_Cardholder" FromRole="Cardholder" ToRole="LogException" />
   </EntityType>
-  <Association Name="FK__AccessLog__Cardh__29221CFB">
-    <End Role="Cardholder" Type="Self.Cardholder" Multiplicity="0..1" />
+  <EntityType Name="Holiday">
+    <Key>
+      <PropertyRef Name="HolidayID" />
+    </Key>
+    <Property Name="HolidayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LeaveDate" Type="DateTime" Precision="0" />
+    <Property Name="ReturnDate" Type="DateTime" Precision="0" />
+    <Property Name="NumberOfDays" Type="Int32" />
+    <Property Name="CardholderID" Type="Int32" />
+    <NavigationProperty Name="Cardholder" Relationship="Self.FK_Holiday_Cardholder" FromRole="Holiday" ToRole="Cardholder" />
+  </EntityType>
+  <Association Name="FK_AccessLog_Cardholder">
+    <End Role="Cardholder" Type="Self.Cardholder" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="AccessLog" Type="Self.AccessLog" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cardholder">
@@ -49,8 +62,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Card__Cardholder__2645B050">
-    <End Role="Cardholder" Type="Self.Cardholder" Multiplicity="0..1" />
+  <Association Name="FK_Card_Cardholder">
+    <End Role="Cardholder" Type="Self.Cardholder" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Card" Type="Self.Card" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cardholder">
@@ -61,45 +76,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="MojaEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="AccessLogs" EntityType="Self.AccessLog" />
-    <EntitySet Name="Cards" EntityType="Self.Card" />
-    <EntitySet Name="Cardholders" EntityType="Self.Cardholder" />
-    <AssociationSet Name="FK__AccessLog__Cardh__29221CFB" Association="Self.FK__AccessLog__Cardh__29221CFB">
-      <End Role="Cardholder" EntitySet="Cardholders" />
-      <End Role="AccessLog" EntitySet="AccessLogs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Card__Cardholder__2645B050" Association="Self.FK__Card__Cardholder__2645B050">
-      <End Role="Cardholder" EntitySet="Cardholders" />
-      <End Role="Card" EntitySet="Cards" />
-    </AssociationSet>
-    <EntitySet Name="Holidays" EntityType="MojaModel.Holiday" />
-    <AssociationSet Name="FK_Holiday_Cardholder" Association="MojaModel.FK_Holiday_Cardholder">
-      <End Role="Cardholder" EntitySet="Cardholders" />
-      <End Role="Holiday" EntitySet="Holidays" />
-    </AssociationSet>
-    <EntitySet Name="Exceptions" EntityType="MojaModel.Exception" />
-    <AssociationSet Name="FK_Exception_Cardholder" Association="MojaModel.FK_Exception_Cardholder">
-      <End Role="Cardholder" EntitySet="Cardholders" />
-      <End Role="Exception" EntitySet="Exceptions" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="Holiday">
-    <Key>
-      <PropertyRef Name="HolidayID" />
-    </Key>
-    <Property Name="HolidayID" Type="Int32" Nullable="false" />
-    <Property Name="LeaveDate" Type="DateTime" Precision="0" />
-    <Property Name="ReturnDate" Type="DateTime" Precision="0" />
-    <Property Name="NumberOfDays" Type="Int32" />
-    <Property Name="CardholderID" Type="Int32" />
-    <NavigationProperty Name="Cardholder" Relationship="MojaModel.FK_Holiday_Cardholder" FromRole="Holiday" ToRole="Cardholder" />
-  </EntityType>
   <Association Name="FK_Holiday_Cardholder">
-    <End Type="MojaModel.Cardholder" Role="Cardholder" Multiplicity="0..1">
+    <End Role="Cardholder" Type="Self.Cardholder" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Type="MojaModel.Holiday" Role="Holiday" Multiplicity="*" />
+    <End Role="Holiday" Type="Self.Holiday" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cardholder">
         <PropertyRef Name="CardholderID" />
@@ -109,7 +90,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="Exception">
+  <EntityContainer Name="MojaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AccessLogs" EntityType="Self.AccessLog" />
+    <EntitySet Name="Cards" EntityType="Self.Card" />
+    <EntitySet Name="Cardholders" EntityType="Self.Cardholder" />
+    <EntitySet Name="Holidays" EntityType="Self.Holiday" />
+    <AssociationSet Name="FK_AccessLog_Cardholder" Association="Self.FK_AccessLog_Cardholder">
+      <End Role="Cardholder" EntitySet="Cardholders" />
+      <End Role="AccessLog" EntitySet="AccessLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Card_Cardholder" Association="Self.FK_Card_Cardholder">
+      <End Role="Cardholder" EntitySet="Cardholders" />
+      <End Role="Card" EntitySet="Cards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Holiday_Cardholder" Association="Self.FK_Holiday_Cardholder">
+      <End Role="Cardholder" EntitySet="Cardholders" />
+      <End Role="Holiday" EntitySet="Holidays" />
+    </AssociationSet>
+    <EntitySet Name="LogExceptions" EntityType="MojaModel.LogException" />
+    <AssociationSet Name="FK_Exception_Cardholder" Association="MojaModel.FK_Exception_Cardholder">
+      <End Role="Cardholder" EntitySet="Cardholders" />
+      <End Role="LogException" EntitySet="LogExceptions" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="LogException">
     <Key>
       <PropertyRef Name="ExceptionID" />
     </Key>
@@ -118,18 +122,18 @@
     <Property Name="Worktime" Type="Time" Precision="7" />
     <Property Name="ExcIN_OUT" Type="Boolean" />
     <Property Name="Date" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="Cardholder" Relationship="MojaModel.FK_Exception_Cardholder" FromRole="Exception" ToRole="Cardholder" />
+    <NavigationProperty Name="Cardholder" Relationship="MojaModel.FK_Exception_Cardholder" FromRole="LogException" ToRole="Cardholder" />
   </EntityType>
   <Association Name="FK_Exception_Cardholder">
     <End Type="MojaModel.Cardholder" Role="Cardholder" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Type="MojaModel.Exception" Role="Exception" Multiplicity="*" />
+    <End Type="MojaModel.LogException" Role="LogException" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cardholder">
         <PropertyRef Name="CardholderID" />
       </Principal>
-      <Dependent Role="Exception">
+      <Dependent Role="LogException">
         <PropertyRef Name="CardholderID" />
       </Dependent>
     </ReferentialConstraint>

@@ -65,9 +65,6 @@
     <Compile Include="Cardholder.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Exception.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="frmMAIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,11 +77,11 @@
     <Compile Include="frmHOLIDAY.Designer.cs">
       <DependentUpon>frmHOLIDAY.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEXCEPTION.cs">
+    <Compile Include="frmLOGEXCEPTION.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEXCEPTION.Designer.cs">
-      <DependentUpon>frmEXCEPTION.cs</DependentUpon>
+    <Compile Include="frmLOGEXCEPTION.Designer.cs">
+      <DependentUpon>frmLOGEXCEPTION.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCARDHOLDER.cs">
       <SubType>Form</SubType>
@@ -93,6 +90,9 @@
       <DependentUpon>frmCARDHOLDER.cs</DependentUpon>
     </Compile>
     <Compile Include="Holiday.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogException.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model1.Context.cs">
@@ -115,8 +115,8 @@
     <EmbeddedResource Include="frmMAIN.resx">
       <DependentUpon>frmMAIN.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEXCEPTION.resx">
-      <DependentUpon>frmEXCEPTION.cs</DependentUpon>
+    <EmbeddedResource Include="frmLOGEXCEPTION.resx">
+      <DependentUpon>frmLOGEXCEPTION.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCARDHOLDER.resx">
       <DependentUpon>frmCARDHOLDER.cs</DependentUpon>
@@ -144,6 +144,7 @@
     <None Include="Properties\DataSources\AccessLog.datasource" />
     <None Include="Properties\DataSources\Card.datasource" />
     <None Include="Properties\DataSources\Cardholder.datasource" />
+    <None Include="Properties\DataSources\LogException.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

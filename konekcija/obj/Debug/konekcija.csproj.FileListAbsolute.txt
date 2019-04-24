@@ -72,6 +72,12 @@ C:\Users\Control 2\Documents\GitHub\project1-zagorka\konekcija\obj\Debug\konekci
 C:\Users\Control 2\Documents\GitHub\project1-zagorka\konekcija\obj\Debug\konekcija.frmCARDHOLDER.resources
 C:\Users\Control 2\Documents\GitHub\project1-zagorka\konekcija\obj\Debug\konekcija.frmHOLIDAY.resources
 C:\Users\Control 2\Documents\GitHub\project1-zagorka\konekcija\obj\Debug\konekcija.frmMAIN.resources
+C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\obj\Debug\konekcija.frmMAIN.resources
+C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\obj\Debug\konekcija.frmCARDHOLDER.resources
+C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\obj\Debug\konekcija.frmHOLIDAY.resources
+C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\obj\Debug\konekcija.Properties.Resources.resources
+C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\obj\Debug\konekcija.csproj.GenerateResource.cache
+C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\obj\Debug\konekcija.csproj.CoreCompileInputs.cache
 C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\bin\Debug\konekcija.exe.config
 C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\bin\Debug\konekcija.exe
 C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\bin\Debug\konekcija.pdb
@@ -80,13 +86,7 @@ C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\bin\Debug\E
 C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\bin\Debug\EntityFramework.xml
 C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\obj\Debug\konekcija.csprojAssemblyReference.cache
-C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\obj\Debug\konekcija.frmMAIN.resources
-C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\obj\Debug\konekcija.frmEXCEPTION.resources
-C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\obj\Debug\konekcija.frmCARDHOLDER.resources
-C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\obj\Debug\konekcija.frmHOLIDAY.resources
-C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\obj\Debug\konekcija.Properties.Resources.resources
-C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\obj\Debug\konekcija.csproj.GenerateResource.cache
-C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\obj\Debug\konekcija.csproj.CoreCompileInputs.cache
 C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\obj\Debug\konekcija.csproj.CopyComplete
 C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\obj\Debug\konekcija.exe
 C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\obj\Debug\konekcija.pdb
+C:\Users\Control 2\Documents\GitHub\project1-zagorka\Misko\konekcija\obj\Debug\konekcija.frmLOGEXCEPTION.resources

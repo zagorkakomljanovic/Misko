@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="LogID" />
     </Key>
-    <Property Name="LogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LogID" Type="int" Nullable="false" />
     <Property Name="CardCode" Type="nvarchar" MaxLength="50" />
     <Property Name="CardType" Type="int" />
     <Property Name="ControllerID" Type="int" />
@@ -16,7 +16,7 @@
     <Key>
       <PropertyRef Name="CardID" />
     </Key>
-    <Property Name="CardID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CardID" Type="int" Nullable="false" />
     <Property Name="CardNo" Type="nvarchar" MaxLength="32" />
     <Property Name="CardNoIntCode" Type="nvarchar" MaxLength="40" />
     <Property Name="CardholderID" Type="int" />
@@ -25,21 +25,11 @@
     <Key>
       <PropertyRef Name="CardholderID" />
     </Key>
-    <Property Name="CardholderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CardholderID" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="150" />
     <Property Name="FirstName" Type="nvarchar" MaxLength="150" />
     <Property Name="LastName" Type="nvarchar" MaxLength="150" />
     <Property Name="Gender" Type="bit" />
-  </EntityType>
-  <EntityType Name="Exception">
-    <Key>
-      <PropertyRef Name="ExceptionID" />
-    </Key>
-    <Property Name="ExceptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CardholderID" Type="int" />
-    <Property Name="Worktime" Type="time" Precision="7" />
-    <Property Name="ExcIN_OUT" Type="bit" />
-    <Property Name="Date" Type="date" />
   </EntityType>
   <EntityType Name="Holiday">
     <Key>
@@ -50,6 +40,16 @@
     <Property Name="ReturnDate" Type="date" />
     <Property Name="NumberOfDays" Type="int" />
     <Property Name="CardholderID" Type="int" />
+  </EntityType>
+  <EntityType Name="LogException">
+    <Key>
+      <PropertyRef Name="ExceptionID" />
+    </Key>
+    <Property Name="ExceptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardholderID" Type="int" />
+    <Property Name="Worktime" Type="time" Precision="7" />
+    <Property Name="ExcIN_OUT" Type="bit" />
+    <Property Name="Date" Type="date" />
   </EntityType>
   <Association Name="FK_AccessLog_Cardholder">
     <End Role="Cardholder" Type="Self.Cardholder" Multiplicity="0..1">
@@ -83,12 +83,12 @@
     <End Role="Cardholder" Type="Self.Cardholder" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Exception" Type="Self.Exception" Multiplicity="*" />
+    <End Role="LogException" Type="Self.LogException" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cardholder">
         <PropertyRef Name="CardholderID" />
       </Principal>
-      <Dependent Role="Exception">
+      <Dependent Role="LogException">
         <PropertyRef Name="CardholderID" />
       </Dependent>
     </ReferentialConstraint>
@@ -111,8 +111,8 @@
     <EntitySet Name="AccessLog" EntityType="Self.AccessLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cardholder" EntityType="Self.Cardholder" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Exception" EntityType="Self.Exception" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Holiday" EntityType="Self.Holiday" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LogException" EntityType="Self.LogException" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_AccessLog_Cardholder" Association="Self.FK_AccessLog_Cardholder">
       <End Role="Cardholder" EntitySet="Cardholder" />
       <End Role="AccessLog" EntitySet="AccessLog" />
@@ -123,7 +123,7 @@
     </AssociationSet>
     <AssociationSet Name="FK_Exception_Cardholder" Association="Self.FK_Exception_Cardholder">
       <End Role="Cardholder" EntitySet="Cardholder" />
-      <End Role="Exception" EntitySet="Exception" />
+      <End Role="LogException" EntitySet="LogException" />
     </AssociationSet>
     <AssociationSet Name="FK_Holiday_Cardholder" Association="Self.FK_Holiday_Cardholder">
       <End Role="Cardholder" EntitySet="Cardholder" />
