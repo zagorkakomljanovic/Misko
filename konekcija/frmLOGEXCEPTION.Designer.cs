@@ -1,6 +1,6 @@
 ﻿namespace konekcija
 {
-    partial class frmEXCEPTION
+    partial class frmLOGEXCEPTION
     {
         /// <summary>
         /// Required designer variable.
@@ -31,9 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.chkIN_OUT = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.cboxCARDHOLDER = new System.Windows.Forms.ComboBox();
             this.cardholderBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -44,22 +42,22 @@
             this.lblOD = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dgCHECKLIST = new System.Windows.Forms.DataGridView();
-            this.Cardholder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.directionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.localTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgLOGEXCEPTION = new System.Windows.Forms.DataGridView();
+            this.gvCARDHOLDER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.worktimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.logExceptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cardholderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accessLogBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgCHECKLIST)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgLOGEXCEPTION)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logExceptionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox4);
-            this.groupBox1.Controls.Add(this.checkBox3);
-            this.groupBox1.Controls.Add(this.checkBox2);
+            this.groupBox1.Controls.Add(this.chkIN_OUT);
             this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Location = new System.Drawing.Point(44, 93);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
@@ -70,35 +68,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Exceptions";
             // 
-            // checkBox4
+            // chkIN_OUT
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(126, 58);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(83, 17);
-            this.checkBox4.TabIndex = 3;
-            this.checkBox4.Text = "Check OUT";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(28, 58);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(61, 17);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "Holiday";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(126, 25);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(71, 17);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Check IN";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chkIN_OUT.AutoSize = true;
+            this.chkIN_OUT.Location = new System.Drawing.Point(111, 25);
+            this.chkIN_OUT.Name = "chkIN_OUT";
+            this.chkIN_OUT.Size = new System.Drawing.Size(100, 17);
+            this.chkIN_OUT.TabIndex = 1;
+            this.chkIN_OUT.Text = "Check IN_OUT";
+            this.chkIN_OUT.UseVisualStyleBackColor = true;
             // 
             // checkBox1
             // 
@@ -114,19 +92,15 @@
             // 
             this.cboxCARDHOLDER.DataSource = this.cardholderBindingSource;
             this.cboxCARDHOLDER.DisplayMember = "Name";
+            this.cboxCARDHOLDER.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxCARDHOLDER.FormattingEnabled = true;
-            this.cboxCARDHOLDER.Location = new System.Drawing.Point(108, 36);
+            this.cboxCARDHOLDER.Location = new System.Drawing.Point(88, 36);
             this.cboxCARDHOLDER.Margin = new System.Windows.Forms.Padding(2);
             this.cboxCARDHOLDER.Name = "cboxCARDHOLDER";
             this.cboxCARDHOLDER.Size = new System.Drawing.Size(185, 21);
             this.cboxCARDHOLDER.TabIndex = 2;
             this.cboxCARDHOLDER.ValueMember = "Name";
             this.cboxCARDHOLDER.SelectedIndexChanged += new System.EventHandler(this.cboxCARDHOLDER_SelectedIndexChanged);
-            this.cboxCARDHOLDER.Click += new System.EventHandler(this.cboxCARDHOLDER_Click);
-            // 
-            // cardholderBindingSource
-            // 
-            this.cardholderBindingSource.DataSource = typeof(konekcija.Cardholder);
             // 
             // lblRadnik
             // 
@@ -137,10 +111,6 @@
             this.lblRadnik.Size = new System.Drawing.Size(45, 13);
             this.lblRadnik.TabIndex = 3;
             this.lblRadnik.Text = "Worker:";
-            // 
-            // accessLogBindingSource
-            // 
-            this.accessLogBindingSource.DataSource = typeof(konekcija.AccessLog);
             // 
             // groupBox2
             // 
@@ -184,6 +154,7 @@
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(151, 20);
             this.dateTimePicker2.TabIndex = 1;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.CreateQuery);
             // 
             // dateTimePicker1
             // 
@@ -192,55 +163,60 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
             this.dateTimePicker1.TabIndex = 0;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.CreateQuery);
             // 
-            // dgCHECKLIST
+            // dgLOGEXCEPTION
             // 
-            this.dgCHECKLIST.AllowUserToAddRows = false;
+            this.dgLOGEXCEPTION.AllowUserToAddRows = false;
             dataGridViewCellStyle1.NullValue = null;
-            this.dgCHECKLIST.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgCHECKLIST.AutoGenerateColumns = false;
-            this.dgCHECKLIST.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgCHECKLIST.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Cardholder,
-            this.directionDataGridViewTextBoxColumn,
-            this.localTimeDataGridViewTextBoxColumn});
-            this.dgCHECKLIST.DataSource = this.accessLogBindingSource;
-            this.dgCHECKLIST.Location = new System.Drawing.Point(44, 206);
-            this.dgCHECKLIST.Margin = new System.Windows.Forms.Padding(2);
-            this.dgCHECKLIST.Name = "dgCHECKLIST";
-            this.dgCHECKLIST.RowTemplate.Height = 24;
-            this.dgCHECKLIST.Size = new System.Drawing.Size(494, 209);
-            this.dgCHECKLIST.TabIndex = 8;
+            this.dgLOGEXCEPTION.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgLOGEXCEPTION.AutoGenerateColumns = false;
+            this.dgLOGEXCEPTION.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgLOGEXCEPTION.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gvCARDHOLDER,
+            this.dateDataGridViewTextBoxColumn,
+            this.worktimeDataGridViewTextBoxColumn});
+            this.dgLOGEXCEPTION.DataSource = this.logExceptionBindingSource;
+            this.dgLOGEXCEPTION.Location = new System.Drawing.Point(44, 211);
+            this.dgLOGEXCEPTION.Margin = new System.Windows.Forms.Padding(2);
+            this.dgLOGEXCEPTION.Name = "dgLOGEXCEPTION";
+            this.dgLOGEXCEPTION.RowTemplate.Height = 24;
+            this.dgLOGEXCEPTION.Size = new System.Drawing.Size(344, 209);
+            this.dgLOGEXCEPTION.TabIndex = 8;
+            this.dgLOGEXCEPTION.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgLOGEXCEPTION_DataBindingComplete);
             // 
-            // Cardholder
+            // gvCARDHOLDER
             // 
-            this.Cardholder.DataPropertyName = "Cardholder";
-            this.Cardholder.HeaderText = "Cardholder";
-            this.Cardholder.Name = "Cardholder";
+            this.gvCARDHOLDER.HeaderText = "Cardholder";
+            this.gvCARDHOLDER.Name = "gvCARDHOLDER";
             // 
-            // directionDataGridViewTextBoxColumn
+            // dateDataGridViewTextBoxColumn
             // 
-            this.directionDataGridViewTextBoxColumn.DataPropertyName = "Direction";
-            this.directionDataGridViewTextBoxColumn.HeaderText = "Direction";
-            this.directionDataGridViewTextBoxColumn.Name = "directionDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
             // 
-            // localTimeDataGridViewTextBoxColumn
+            // worktimeDataGridViewTextBoxColumn
             // 
-            this.localTimeDataGridViewTextBoxColumn.DataPropertyName = "LocalTime";
-            this.localTimeDataGridViewTextBoxColumn.HeaderText = "LocalTime";
-            this.localTimeDataGridViewTextBoxColumn.Name = "localTimeDataGridViewTextBoxColumn";
+            this.worktimeDataGridViewTextBoxColumn.DataPropertyName = "Worktime";
+            this.worktimeDataGridViewTextBoxColumn.HeaderText = "Worktime";
+            this.worktimeDataGridViewTextBoxColumn.Name = "worktimeDataGridViewTextBoxColumn";
             // 
-            // frmEXCEPTION
+            // logExceptionBindingSource
+            // 
+            this.logExceptionBindingSource.DataSource = typeof(konekcija.LogException);
+            // 
+            // frmLOGEXCEPTION
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(573, 457);
-            this.Controls.Add(this.dgCHECKLIST);
+            this.Controls.Add(this.dgLOGEXCEPTION);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.cboxCARDHOLDER);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblRadnik);
-            this.Name = "frmEXCEPTION";
+            this.Name = "frmLOGEXCEPTION";
             this.Text = "Exception";
             this.Load += new System.EventHandler(this.frmEXCEPTION_Load);
             this.groupBox1.ResumeLayout(false);
@@ -249,7 +225,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.accessLogBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgCHECKLIST)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgLOGEXCEPTION)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logExceptionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,13 +244,12 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.BindingSource accessLogBindingSource;
         private System.Windows.Forms.BindingSource cardholderBindingSource;
-        private System.Windows.Forms.DataGridView dgCHECKLIST;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.DataGridView dgLOGEXCEPTION;
+        private System.Windows.Forms.CheckBox chkIN_OUT;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cardholder;
-        private System.Windows.Forms.DataGridViewTextBoxColumn directionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn localTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource logExceptionBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gvCARDHOLDER;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn worktimeDataGridViewTextBoxColumn;
     }
 }

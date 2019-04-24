@@ -117,7 +117,7 @@ namespace konekcija
 
         private void btnTimeReport_Click(object sender, EventArgs e)
         {
-            Form form = new frmEXCEPTION();
+            Form form = new frmLOGEXCEPTION();
             form.ShowDialog();
         }
         public List<string> GetTableNames(string connectionString)
