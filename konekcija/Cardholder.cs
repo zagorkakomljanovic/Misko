@@ -21,6 +21,7 @@ namespace konekcija
             this.Cards = new HashSet<Card>();
             this.Holidays = new HashSet<Holiday>();
             this.LogExceptions = new HashSet<LogException>();
+            this.NonWorkingDays = new HashSet<NonWorkingDay>();
         }
     
         public int CardholderID { get; set; }
@@ -37,5 +38,7 @@ namespace konekcija
         public virtual ICollection<Holiday> Holidays { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LogException> LogExceptions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NonWorkingDay> NonWorkingDays { get; set; }
     }
 }

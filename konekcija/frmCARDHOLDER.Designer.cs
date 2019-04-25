@@ -29,13 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.cboxCARDHOLDER = new System.Windows.Forms.ComboBox();
             this.cardholderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblRadnik = new System.Windows.Forms.Label();
             this.dgCHECKLIST = new System.Windows.Forms.DataGridView();
+            this.directionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LocalTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accessLogBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -43,9 +46,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblDO = new System.Windows.Forms.Label();
             this.lblOD = new System.Windows.Forms.Label();
-            this.directionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LocalTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.localTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.cardholderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCHECKLIST)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accessLogBindingSource)).BeginInit();
@@ -101,8 +101,8 @@
             // dgCHECKLIST
             // 
             this.dgCHECKLIST.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.NullValue = null;
-            this.dgCHECKLIST.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.NullValue = null;
+            this.dgCHECKLIST.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgCHECKLIST.AutoGenerateColumns = false;
             this.dgCHECKLIST.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCHECKLIST.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -117,6 +117,24 @@
             this.dgCHECKLIST.Size = new System.Drawing.Size(480, 372);
             this.dgCHECKLIST.TabIndex = 4;
             this.dgCHECKLIST.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgCHECKLIST_CellFormatting);
+            // 
+            // directionDataGridViewTextBoxColumn
+            // 
+            this.directionDataGridViewTextBoxColumn.DataPropertyName = "Direction";
+            this.directionDataGridViewTextBoxColumn.HeaderText = "Direction";
+            this.directionDataGridViewTextBoxColumn.Name = "directionDataGridViewTextBoxColumn";
+            // 
+            // LocalTime
+            // 
+            this.LocalTime.DataPropertyName = "LocalTime";
+            this.LocalTime.HeaderText = "LocalTime";
+            this.LocalTime.Name = "LocalTime";
+            // 
+            // localTimeDataGridViewTextBoxColumn
+            // 
+            this.localTimeDataGridViewTextBoxColumn.DataPropertyName = "LocalTime";
+            this.localTimeDataGridViewTextBoxColumn.HeaderText = "LocalTime";
+            this.localTimeDataGridViewTextBoxColumn.Name = "localTimeDataGridViewTextBoxColumn";
             // 
             // accessLogBindingSource
             // 
@@ -186,34 +204,20 @@
             this.lblOD.TabIndex = 2;
             this.lblOD.Text = "Od";
             // 
-            // directionDataGridViewTextBoxColumn
-            // 
-            this.directionDataGridViewTextBoxColumn.DataPropertyName = "Direction";
-            this.directionDataGridViewTextBoxColumn.HeaderText = "Direction";
-            this.directionDataGridViewTextBoxColumn.Name = "directionDataGridViewTextBoxColumn";
-            // 
-            // LocalTime
-            // 
-            this.LocalTime.DataPropertyName = "LocalTime";
-            this.LocalTime.HeaderText = "LocalTime";
-            this.LocalTime.Name = "LocalTime";
-            // 
-            // localTimeDataGridViewTextBoxColumn
-            // 
-            this.localTimeDataGridViewTextBoxColumn.DataPropertyName = "LocalTime";
-            this.localTimeDataGridViewTextBoxColumn.HeaderText = "LocalTime";
-            this.localTimeDataGridViewTextBoxColumn.Name = "localTimeDataGridViewTextBoxColumn";
-            // 
             // frmCARDHOLDER
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(749, 626);
+            this.AutoScroll = true;
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(538, 626);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgCHECKLIST);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimizeBox = false;
             this.Name = "frmCARDHOLDER";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cardholder";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cardholderBindingSource)).EndInit();

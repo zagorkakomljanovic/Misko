@@ -36,6 +36,7 @@
     <NavigationProperty Name="Cards" Relationship="Self.FK_Card_Cardholder" FromRole="Cardholder" ToRole="Card" />
     <NavigationProperty Name="Holidays" Relationship="Self.FK_Holiday_Cardholder" FromRole="Cardholder" ToRole="Holiday" />
     <NavigationProperty Name="LogExceptions" Relationship="MojaModel.FK_Exception_Cardholder" FromRole="Cardholder" ToRole="LogException" />
+    <NavigationProperty Name="NonWorkingDays" Relationship="MojaModel.FK_NonWorkingDays_Cardholder1" FromRole="Cardholder" ToRole="NonWorkingDay" />
   </EntityType>
   <EntityType Name="Holiday">
     <Key>
@@ -112,6 +113,11 @@
       <End Role="Cardholder" EntitySet="Cardholders" />
       <End Role="LogException" EntitySet="LogExceptions" />
     </AssociationSet>
+    <EntitySet Name="NonWorkingDays" EntityType="MojaModel.NonWorkingDay" />
+    <AssociationSet Name="FK_NonWorkingDays_Cardholder1" Association="MojaModel.FK_NonWorkingDays_Cardholder1">
+      <End Role="Cardholder" EntitySet="Cardholders" />
+      <End Role="NonWorkingDay" EntitySet="NonWorkingDays" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="LogException">
     <Key>
@@ -134,6 +140,28 @@
         <PropertyRef Name="CardholderID" />
       </Principal>
       <Dependent Role="LogException">
+        <PropertyRef Name="CardholderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="NonWorkingDay">
+    <Key>
+      <PropertyRef Name="Non_working_daysID" />
+    </Key>
+    <Property Name="Non_working_daysID" Type="Int32" Nullable="false" />
+    <Property Name="CardholderID" Type="Int32" Nullable="false" />
+    <Property Name="TotalNWD" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_NonWorkingDays_Cardholder1">
+    <End Type="MojaModel.Cardholder" Role="Cardholder" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MojaModel.NonWorkingDay" Role="NonWorkingDay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cardholder">
+        <PropertyRef Name="CardholderID" />
+      </Principal>
+      <Dependent Role="NonWorkingDay">
         <PropertyRef Name="CardholderID" />
       </Dependent>
     </ReferentialConstraint>

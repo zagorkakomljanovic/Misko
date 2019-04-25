@@ -51,6 +51,14 @@
     <Property Name="ExcIN_OUT" Type="bit" />
     <Property Name="Date" Type="date" />
   </EntityType>
+  <EntityType Name="NonWorkingDays">
+    <Key>
+      <PropertyRef Name="Non_working_daysID" />
+    </Key>
+    <Property Name="Non_working_daysID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardholderID" Type="int" Nullable="false" />
+    <Property Name="TotalNWD" Type="int" />
+  </EntityType>
   <Association Name="FK_AccessLog_Cardholder">
     <End Role="Cardholder" Type="Self.Cardholder" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
@@ -107,12 +115,27 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_NonWorkingDays_Cardholder">
+    <End Role="Cardholder" Type="Self.Cardholder" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="NonWorkingDays" Type="Self.NonWorkingDays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cardholder">
+        <PropertyRef Name="CardholderID" />
+      </Principal>
+      <Dependent Role="NonWorkingDays">
+        <PropertyRef Name="CardholderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="MojaModelStoreContainer">
     <EntitySet Name="AccessLog" EntityType="Self.AccessLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cardholder" EntityType="Self.Cardholder" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Holiday" EntityType="Self.Holiday" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LogException" EntityType="Self.LogException" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NonWorkingDays" EntityType="Self.NonWorkingDays" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_AccessLog_Cardholder" Association="Self.FK_AccessLog_Cardholder">
       <End Role="Cardholder" EntitySet="Cardholder" />
       <End Role="AccessLog" EntitySet="AccessLog" />
@@ -128,6 +151,10 @@
     <AssociationSet Name="FK_Holiday_Cardholder" Association="Self.FK_Holiday_Cardholder">
       <End Role="Cardholder" EntitySet="Cardholder" />
       <End Role="Holiday" EntitySet="Holiday" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NonWorkingDays_Cardholder" Association="Self.FK_NonWorkingDays_Cardholder">
+      <End Role="Cardholder" EntitySet="Cardholder" />
+      <End Role="NonWorkingDays" EntitySet="NonWorkingDays" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
