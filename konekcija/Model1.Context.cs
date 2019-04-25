@@ -30,5 +30,6 @@ namespace konekcija
         public virtual DbSet<Cardholder> Cardholders { get; set; }
         public virtual DbSet<Holiday> Holidays { get; set; }
         public virtual DbSet<LogException> LogExceptions { get; set; }
+        public virtual DbSet<NonWorkingDay> NonWorkingDays { get; set; }
     }
 }

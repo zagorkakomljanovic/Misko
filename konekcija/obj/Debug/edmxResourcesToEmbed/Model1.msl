@@ -57,5 +57,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="NonWorkingDays">
+      <EntityTypeMapping TypeName="MojaModel.NonWorkingDay">
+        <MappingFragment StoreEntitySet="NonWorkingDays">
+          <ScalarProperty Name="TotalNWD" ColumnName="TotalNWD" />
+          <ScalarProperty Name="CardholderID" ColumnName="CardholderID" />
+          <ScalarProperty Name="Non_working_daysID" ColumnName="Non_working_daysID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

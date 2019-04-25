@@ -29,27 +29,41 @@ namespace konekcija
 
         private void cboxCARDHOLDER_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CARDHOLDERID = 0;
-            if (cboxCARDHOLDER.Text == "")
-            {
-                Lista3 = _context.LogExceptions.ToList();
 
-                Lista3 = Lista3.Where(w => w.Date >= dateTimePicker1.Value && w.Date <= dateTimePicker2.Value).ToList();
-                logExceptionBindingSource.DataSource = Lista3;
-                dgLOGEXCEPTION.DataSource = Lista3;
+            CARDHOLDERID = 0;
+            Lista3 = null;
+            
+            
+            if (cboxCARDHOLDER.Text == "" || cboxCARDHOLDER.Text == "AccessLog")
+            {
+               
             }
             else
             {
                 CARDHOLDERID = _context.Cardholders.Where(w => w.Name == cboxCARDHOLDER.Text).Select(s => s.CardholderID).First();
 
-                Lista3 = _context.LogExceptions.ToList();
+                if (CARDHOLDERID == 0)
+                {
+                    Lista3 = _context.LogExceptions.ToList();
 
-                Lista3 = Lista3.Where(i => ((CARDHOLDERID == 0) ? true : (i.Date >= dateTimePicker1.Value.Date)
-                                           && (i.Date <= dateTimePicker2.Value.Date)
-                                           && (i.CardholderID == CARDHOLDERID))).ToList();
+                    Lista3 = Lista3.Where(i => ((i.Date >= dateTimePicker1.Value.Date)
+                                               && (i.Date <= dateTimePicker2.Value.Date))).ToList();
 
-                logExceptionBindingSource.DataSource = Lista3;
-                dgLOGEXCEPTION.DataSource = Lista3;
+                    logExceptionBindingSource.DataSource = Lista3;
+                    dgLOGEXCEPTION.DataSource = Lista3;
+                }
+                else
+                {
+                    Lista3 = _context.LogExceptions.ToList();
+
+                    Lista3 = Lista3.Where(i => ((CARDHOLDERID == 0) ? true : (i.Date >= dateTimePicker1.Value.Date)
+                                               && (i.Date <= dateTimePicker2.Value.Date)
+                                               && (i.CardholderID == CARDHOLDERID))).ToList();
+
+                    logExceptionBindingSource.DataSource = Lista3;
+                    dgLOGEXCEPTION.DataSource = Lista3;
+                }              
+                
             }
                   
         }         
@@ -84,16 +98,36 @@ namespace konekcija
             }
         }
         private void CreateQuery(object sender, EventArgs e)
-        {            
+        {
+            if (cboxCARDHOLDER.Text == "")
+            {
 
-                Lista3 = _context.LogExceptions.ToList();
+            }
+            else
+            {
+                if (CARDHOLDERID == 0)
+                {
+                    Lista3 = _context.LogExceptions.ToList();
 
-                Lista3 = Lista3.Where(i => ((CARDHOLDERID == 0) ? true : (i.Date >= dateTimePicker1.Value.Date)
-                                           && (i.Date <= dateTimePicker2.Value.Date)
-                                           && (i.CardholderID == CARDHOLDERID))).ToList();
+                    Lista3 = Lista3.Where(i => ((i.Date >= dateTimePicker1.Value.Date)
+                                               && (i.Date <= dateTimePicker2.Value.Date))).ToList();
 
-                logExceptionBindingSource.DataSource = Lista3;
-                dgLOGEXCEPTION.DataSource = Lista3;
+                    logExceptionBindingSource.DataSource = Lista3;
+                    dgLOGEXCEPTION.DataSource = Lista3;
+                }
+                else
+                {
+                    Lista3 = _context.LogExceptions.ToList();
+
+                    Lista3 = Lista3.Where(i => ((CARDHOLDERID == 0) ? true : (i.Date >= dateTimePicker1.Value.Date)
+                                               && (i.Date <= dateTimePicker2.Value.Date)
+                                               && (i.CardholderID == CARDHOLDERID))).ToList();
+
+                    logExceptionBindingSource.DataSource = Lista3;
+                    dgLOGEXCEPTION.DataSource = Lista3;
+                }
+            }
+            
         }
     }
     

@@ -32,7 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkIN_OUT = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkWORKTIME = new System.Windows.Forms.CheckBox();
             this.cboxCARDHOLDER = new System.Windows.Forms.ComboBox();
             this.cardholderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblRadnik = new System.Windows.Forms.Label();
@@ -58,12 +58,12 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.chkIN_OUT);
-            this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Location = new System.Drawing.Point(44, 93);
+            this.groupBox1.Controls.Add(this.chkWORKTIME);
+            this.groupBox1.Location = new System.Drawing.Point(30, 81);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(229, 87);
+            this.groupBox1.Size = new System.Drawing.Size(180, 87);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Exceptions";
@@ -71,22 +71,22 @@
             // chkIN_OUT
             // 
             this.chkIN_OUT.AutoSize = true;
-            this.chkIN_OUT.Location = new System.Drawing.Point(111, 25);
+            this.chkIN_OUT.Location = new System.Drawing.Point(28, 57);
             this.chkIN_OUT.Name = "chkIN_OUT";
-            this.chkIN_OUT.Size = new System.Drawing.Size(100, 17);
+            this.chkIN_OUT.Size = new System.Drawing.Size(124, 17);
             this.chkIN_OUT.TabIndex = 1;
-            this.chkIN_OUT.Text = "Check IN_OUT";
+            this.chkIN_OUT.Text = "Check IN_OUT error";
             this.chkIN_OUT.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // chkWORKTIME
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(28, 25);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(74, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Work time";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkWORKTIME.AutoSize = true;
+            this.chkWORKTIME.Location = new System.Drawing.Point(28, 25);
+            this.chkWORKTIME.Name = "chkWORKTIME";
+            this.chkWORKTIME.Size = new System.Drawing.Size(98, 17);
+            this.chkWORKTIME.TabIndex = 0;
+            this.chkWORKTIME.Text = "Work time error";
+            this.chkWORKTIME.UseVisualStyleBackColor = true;
             // 
             // cboxCARDHOLDER
             // 
@@ -118,7 +118,7 @@
             this.groupBox2.Controls.Add(this.lblOD);
             this.groupBox2.Controls.Add(this.dateTimePicker2);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
-            this.groupBox2.Location = new System.Drawing.Point(301, 93);
+            this.groupBox2.Location = new System.Drawing.Point(228, 81);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
@@ -168,20 +168,26 @@
             // dgLOGEXCEPTION
             // 
             this.dgLOGEXCEPTION.AllowUserToAddRows = false;
+            this.dgLOGEXCEPTION.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.NullValue = null;
             this.dgLOGEXCEPTION.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgLOGEXCEPTION.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgLOGEXCEPTION.AutoGenerateColumns = false;
+            this.dgLOGEXCEPTION.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgLOGEXCEPTION.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgLOGEXCEPTION.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.gvCARDHOLDER,
             this.dateDataGridViewTextBoxColumn,
             this.worktimeDataGridViewTextBoxColumn});
             this.dgLOGEXCEPTION.DataSource = this.logExceptionBindingSource;
-            this.dgLOGEXCEPTION.Location = new System.Drawing.Point(44, 211);
+            this.dgLOGEXCEPTION.Location = new System.Drawing.Point(30, 199);
             this.dgLOGEXCEPTION.Margin = new System.Windows.Forms.Padding(2);
             this.dgLOGEXCEPTION.Name = "dgLOGEXCEPTION";
+            this.dgLOGEXCEPTION.ReadOnly = true;
             this.dgLOGEXCEPTION.RowTemplate.Height = 24;
-            this.dgLOGEXCEPTION.Size = new System.Drawing.Size(344, 209);
+            this.dgLOGEXCEPTION.Size = new System.Drawing.Size(435, 209);
             this.dgLOGEXCEPTION.TabIndex = 8;
             this.dgLOGEXCEPTION.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgLOGEXCEPTION_DataBindingComplete);
             // 
@@ -189,18 +195,21 @@
             // 
             this.gvCARDHOLDER.HeaderText = "Cardholder";
             this.gvCARDHOLDER.Name = "gvCARDHOLDER";
+            this.gvCARDHOLDER.ReadOnly = true;
             // 
             // dateDataGridViewTextBoxColumn
             // 
             this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
             this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // worktimeDataGridViewTextBoxColumn
             // 
             this.worktimeDataGridViewTextBoxColumn.DataPropertyName = "Worktime";
             this.worktimeDataGridViewTextBoxColumn.HeaderText = "Worktime";
             this.worktimeDataGridViewTextBoxColumn.Name = "worktimeDataGridViewTextBoxColumn";
+            this.worktimeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // logExceptionBindingSource
             // 
@@ -210,13 +219,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 457);
+            this.ClientSize = new System.Drawing.Size(499, 431);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgLOGEXCEPTION);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.cboxCARDHOLDER);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblRadnik);
             this.Name = "frmLOGEXCEPTION";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Exception";
             this.Load += new System.EventHandler(this.frmEXCEPTION_Load);
             this.groupBox1.ResumeLayout(false);
@@ -246,7 +256,7 @@
         private System.Windows.Forms.BindingSource cardholderBindingSource;
         private System.Windows.Forms.DataGridView dgLOGEXCEPTION;
         private System.Windows.Forms.CheckBox chkIN_OUT;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkWORKTIME;
         private System.Windows.Forms.BindingSource logExceptionBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn gvCARDHOLDER;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;

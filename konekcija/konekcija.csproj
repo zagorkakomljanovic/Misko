@@ -65,16 +65,22 @@
     <Compile Include="Cardholder.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Holiday\frmNONWORKINGDAYS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Holiday\frmNONWORKINGDAYS.Designer.cs">
+      <DependentUpon>frmNONWORKINGDAYS.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMAIN.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMAIN.Designer.cs">
       <DependentUpon>frmMAIN.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHOLIDAY.cs">
+    <Compile Include="Holiday\frmHOLIDAY.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHOLIDAY.Designer.cs">
+    <Compile Include="Holiday\frmHOLIDAY.Designer.cs">
       <DependentUpon>frmHOLIDAY.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLOGEXCEPTION.cs">
@@ -110,8 +116,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="NonWorkingDay.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Holiday\frmNONWORKINGDAYS.resx">
+      <DependentUpon>frmNONWORKINGDAYS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMAIN.resx">
       <DependentUpon>frmMAIN.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,7 +133,7 @@
     <EmbeddedResource Include="frmCARDHOLDER.resx">
       <DependentUpon>frmCARDHOLDER.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHOLIDAY.resx">
+    <EmbeddedResource Include="Holiday\frmHOLIDAY.resx">
       <DependentUpon>frmHOLIDAY.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
